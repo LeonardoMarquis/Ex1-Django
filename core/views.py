@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from core.models import Produto
 
@@ -33,8 +35,11 @@ def user_terms(request):
 
 
 def produto(request, pk):
-    p = Produto.objects.get(id = pk)
+    p = get_object_or_404(Produto, id = pk)
     context = {
         'p' : p
     }
     return render(request, 'produto.html', context)
+
+def error404(request):
+    return render(request, '404.html')

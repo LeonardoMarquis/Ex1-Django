@@ -3,6 +3,7 @@ venv/
 env/
 media/
 
+staticfiles/
 .env
 secret.json
 *.ini

@@ -7,3 +7,4 @@ urlpatterns = [
     path('user_terms', user_terms, name= 'user_terms'),
     path('produto/<int:pk>', produto, name = 'produto')
 ]
+

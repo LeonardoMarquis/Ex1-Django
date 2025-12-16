@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/produto.css' %}">
 </head>
 <body>
 
@@ -20,22 +21,39 @@
 
     <span>{{ logado }}</span>
 
-    <div class="container">
-        <div>
-            
+    <div class="produto-container">
+        <div class="produto-imagem">
+            {% if p.imagem %}
+                <img src="{{ p.imagem.url }}" alt="{{ p.nome }}" height="900px">
+            {% else %}
+                <img src="{% static 'images/no-image.png' %}" alt="no imagem">
+            {% endif %}
         </div>
-        <div class="post">
-            <h2>{{ p }}</h2>
-            <p><strong>R$ {{ p.preco }}</strong></p>
-            <p><strong>Publicado em:</strong> 05 de agosto de 2025</p>
-            <p>L lacinia.</p>
-            <p><strong>{{ p.estoque }} unidades</strong></p>
+        <div class="produto-info">
+            <h2>{{ p.nome }}</h2>
 
+            <div class="produto-preco">
+                R$ {{ p.preco }}
+            </div>
+
+            <div class="produto-estoque">
+                {{ p.estoque }} unidades em estoque!
+            </div>
+
+            <div class="produto-descricao">
+                {{ p.descricao }}.
+            </div>
+
+            <a href="#" class="produto-botao">
+                Adicionar ao carrinho
+            </a>
+  
         </div>
 
     </div>
 
-
+    <button onclick="teste()">Testar</button>
+    
     <footer>
         <p>&copy; 2025 Meu Blog. Todos os direitos reservados.</p>
         <p>
@@ -44,7 +62,9 @@
         </p>
     </footer>
 
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/mensage.js' %}"></script>
 </body>
 </html>
