@@ -124,6 +124,10 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # no static é para as imagens estaticas do site
 
+# recomendado para usar deploy no render
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 # Arquivos de mídia (uploads do usuário / banco), mídia dinamica
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
